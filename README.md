@@ -25,6 +25,7 @@ I will solve the above-mentioned challenge by applying deep learning algorithms 
 # 
 <h2> :book:Conclusion</h2>
 1. All the models such as Mobilenet, Dexpression, CNN, Densenet, and ResNet were evaluated.
+
 2. The ResNet model was chosen because it had the highest training accuracy of all the models, and its validation accuracy was nearly 72 percent, which is comparable to CNN models.
 3. As a result, we save this resnet model and use it to predict facial expressions.
 4.Since, the emotion counts of disgust and surprise images are less therefore on local webcam it hardly detect those emotions.
