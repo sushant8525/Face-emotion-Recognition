@@ -28,11 +28,14 @@ I will solve the above-mentioned challenge by applying deep learning algorithms 
 1. All the models such as Mobilenet, Dexpression, CNN, Densenet, and ResNet were evaluated.
 
 2. The ResNet model was chosen because it had the highest training accuracy of all the models, and its validation accuracy was nearly 72 percent, which is comparable to CNN models.
-3. As a result, we save this resnet model and use it to predict facial expressions.
-4.Since, the emotion counts of disgust and surprise images are less therefore on local webcam it hardly detect those emotions.
-5. Using streamlit, a front-end model was successfully created and ran on a local webserver.The Streamlit web application has been deployed on Amazon's AWS cloud platform.
-6. It was an amazing and fascinating project. This has taught me a lot.
 
+3. As a result, we save this resnet model and use it to predict facial expressions.
+
+4.Since, the emotion counts of disgust and surprise images are less therefore on local webcam it hardly detect those emotions.
+
+5. Using streamlit, a front-end model was successfully created and ran on a local webserver.The Streamlit web application has been deployed on Amazon's AWS cloud platform.
+
+6. It was an amazing and fascinating project. This has taught me a lot.
 
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sushant-jagtap-b93a771a/)
 
