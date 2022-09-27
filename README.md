@@ -32,5 +32,7 @@ I will solve the above-mentioned challenge by applying deep learning algorithms 
 4.Since, the emotion counts of disgust and surprise images are less therefore on local webcam it hardly detect those emotions.
 5. Using streamlit, a front-end model was successfully created and ran on a local webserver.The Streamlit web application has been deployed on Amazon's AWS cloud platform.
 6. It was an amazing and fascinating project. This has taught me a lot.
+
+
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sushant-jagtap-b93a771a/)
 
