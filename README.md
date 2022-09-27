@@ -19,11 +19,11 @@ Deep learning backed system not only solves the surveillance issue, but it also 
 
 I will solve the above-mentioned challenge by applying deep learning algorithms to live video data. The solution to this problem is by recognizing facial emotions.
 
-# Dataset link
 <h2> 🔗:Dataset link</h2>
 [Here](https://www.kaggle.com/deadskull7/fer2013)
 
-# Conclusion
+# 
+<h2> :book:Conclusion</h2>
 1. All the models such as Mobilenet, Dexpression, CNN, Densenet, and ResNet were evaluated.
 2. The ResNet model was chosen because it had the highest training accuracy of all the models, and its validation accuracy was nearly 72 percent, which is comparable to CNN models.
 3. As a result, we save this resnet model and use it to predict facial expressions.
