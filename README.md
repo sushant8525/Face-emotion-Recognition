@@ -1,3 +1,5 @@
+<p align="center"> 
+  <img src="images/2.png" alt="2.png" width="80px" height="80px">
 # Face-emotion-Recognition
 Alma Better Project
 
