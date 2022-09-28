@@ -4,7 +4,7 @@
 <h3 align="center"> AlmaBetter Verfied Project - <a href="https://www.almabetter.com/"> AlmaBetter </a> </h5>
      
 <p align="center"> 
-<img src="images/3.png" alt="3.png" height="382px">
+<img src="images/all.gif" alt="all.gif" height="382px">
 </p>
 <h2> :book:Introduction</h2>
 Facial expressions are a form of nonverbal communication. Various studies have been done for the classification of these facial expressions. There is strong evidence for the universal facial expressions of seven emotions which include: neutral happy, sadness, anger, disgust, fear, and surprise. So it is very important to detect these emotions on the face as it has wide applications in the field of Computer Vision and Artificial Intelligence. These fields are researching on the facial emotions to get the sentiments of the humans automatically.
