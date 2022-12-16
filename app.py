@@ -1,41 +1,46 @@
-import streamlit as st
-from PIL import Image
-from model_predict import *
-from streamlit_webrtc import webrtc_streamer
+from keras.models import load_model
+from time import sleep
+from tensorflow.keras.utils import load_img,load_img, img_to_array
+from keras.preprocessing import image
+import cv2
+import numpy as np
 
-st.title("✨ Welcome ✨")
-st.sidebar.title("🎇Choose an options🎇")
-choice_options=st.sidebar.selectbox("",('Home','Start webcam','About'))
+face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+classifier =load_model('model.h5')
 
-if choice_options=="Home":
-    st.title('👨Face Emotion Recognition using Live Web Camera👩')
-    image = Image.open('data/face.jpeg')
-    st.image(image)
-    st.sidebar.subheader("""💎 Face Emotion Recognition is a system used to detect the emotions from face.""")
-    st.sidebar.subheader("""💎 Nowadays it is widely used applications.Eg: In zoom meeting we can able to detect the student emotion.""")
-    st.sidebar.subheader("""💎 It is very helpful for teachers where they can able to teach based on their students emotion and make class more interactive.""")
-if choice_options=="Start webcam":
-    st.header("Webcam Live Feed")
-    st.write("Click on start to use webcam and detect your face emotion")
-    webrtc_streamer(key="example", video_processor_factory=VideoProcessor)
-if choice_options=="About":
-    st.title('Project Members')
-    col1, col2= st.columns(2)
-    with col1:
-        image_1= Image.open('data/ape.png')
-        st.subheader("Sushant Jagtap")
-        st.image(image_1)
-        st.write("Email:sushant8525@gmail.com")
-        st.markdown("""[LinkedIn profile](https://www.linkedin.com/in/sushant-jagtap-b93a771a/)""")
-    with col2:
-        image_2 = Image.open('data/jai.png')
-        st.subheader("akash bhor")
-        st.image(image_2)
-        st.write("Email:akashbhor111@gmail.com")
-        st.markdown("""[LinkedIn profile](https://www.linkedin.com/in/akash-bhor-b62503149/)""")
+emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 
-    col1, col2= st.columns(2)
+cap = cv2.VideoCapture(0)
 
-    with col2:
-        pass
 
+
+while True:
+    _, frame = cap.read()
+    labels = []
+    gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+    faces = face_classifier.detectMultiScale(gray)
+
+    for (x,y,w,h) in faces:
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,255),2)
+        roi_gray = gray[y:y+h,x:x+w]
+        roi_gray = cv2.resize(roi_gray,(48,48),interpolation=cv2.INTER_AREA)
+
+
+
+        if np.sum([roi_gray])!=0:
+            roi = roi_gray.astype('float')/255.0
+            roi = img_to_array(roi)
+            roi = np.expand_dims(roi,axis=0)
+
+            prediction = classifier.predict(roi)[0]
+            label=emotion_labels[prediction.argmax()]
+            label_position = (x,y)
+            cv2.putText(frame,label,label_position,cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
+        else:
+            cv2.putText(frame,'No Faces',(30,80),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
+    cv2.imshow('Emotion Detector',frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
